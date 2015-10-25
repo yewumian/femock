@@ -1,10 +1,12 @@
 ##### FEMock
 
-##### How to install
+##### 安装
 
 ##### nodejs & npm
 
 * nodejs >= 0.12.0
+
+* npm install femock
 
 #### 使用
 

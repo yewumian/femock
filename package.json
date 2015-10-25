@@ -1,6 +1,6 @@
 {
   "name": "femock",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "mock",
   "main": "index.js",
   "scripts": {
