@@ -1,0 +1,15 @@
+<header data-ui-view="header" class="container-fluid"></header>
+<div class="container-fluid main" ng-controller="manList">
+    <div class="row">
+        <nav data-ui-view="nav"></nav>
+        <div class="dashboard col-md-9">
+            <span class="dashboard-port">
+                <a href="/#/client={{client}}" ng-repeat="client in data.clients"
+                   ng-class="{active:client==data.active}" >{{client}}</a>
+                <a href="/#/"ng-class="{active:data.active==0}">All</a>
+            </span>
+        </div>
+        <div class="api-wrap col-md-9" data-ui-view="api"></div>
+        <aside class="log col-md-3" data-ui-view="log" id="terminal"></aside>
+    </div>
+</div>

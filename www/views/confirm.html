@@ -1,0 +1,10 @@
+<div>
+    <div class="modal-header" ng-bind-html="(model.title|unSafeHtml)||'确认消息'"></div>
+    <div class="modal-body alert-{{model.status}} text-center">
+        <div ng-bind-html="model.content|unSafeHtml"></div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="model.cancel()">取消</button>
+        <button type="button" class="btn btn-info" ng-click="model.ok()">确定</button>
+    </div>
+</div>

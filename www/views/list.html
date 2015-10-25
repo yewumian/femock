@@ -1,0 +1,56 @@
+<ul class="api">
+    <li ng-repeat="(key,api) in data.apis" {{$pindex=$index}}>
+        <table id="api-id-{{api.apid}}">
+            <tbody>
+            <tr>
+                <th>{{api.client|uppercase}} 端:</th>
+                <td>
+                    {{api.name}}
+                </td>
+                <th>作者:</th>
+                <td>
+                    {{api.author}}
+                </td>
+            </tr>
+            <tr>
+                <th>路径:</th>
+                <td>
+                    {{api.path}}
+                </td>
+                <th>操作:</th>
+                <td class="api-action">
+                    <a href="javascript:;" class="has-warning" ng-click="deleteApi(api.apid,key)"><i class="fa fa-remove" title="删除接口"></i>删除接口</a>
+                    <a href="/#/create/{{api.apid}}" class="has-success"><i class="fa fa-cog" title="编辑接口"></i>编辑接口</a>
+                </td>
+            </tr>
+            <tr>
+                <th>参数:</th>
+                <td colspan="3">
+                    {{api.param}}
+                </td>
+            </tr>
+            <tr>
+                <th>举例:</th>
+                <td colspan="3">
+                    {{api.eg}}
+                </td>
+            </tr>
+            <tr class="api-status">
+                <th>状态:</th>
+                <td colspan="3">
+                    <span ng-repeat="status in api.status">
+                        <label>
+                            <input type="radio" name="status-{{api.apid}}" value="{{status.stid}}"
+                                   ng-model="api.active" ng-click="setApiActive(api.apid,status.stid)" />
+                            {{status.description}}
+                        </label>
+                        <i class="fa fa-edit" title="编辑状态" ng-click="editStatus(key,$index)"></i>
+                        <i class="fa fa-remove" title="删除状态" ng-if="status.stid!=api.active"
+                           ng-click="deleteStatus(status.stid,key,$index)"></i>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </li>
+</ul>

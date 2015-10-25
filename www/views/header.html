@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="logo">
+        FEMock
+    </div>
+    <div class="search" ng-controller="searchApi">
+        <form name="searchform" novalidate class="form-inline">
+            <div class="form-group-sm">
+                <select class="form-control" name="client" ng-model="data.client">
+                    <option value="0">All</option>
+                    <option ng-repeat="client in data.clients" value="{{client}}">{{client}}</option>
+                </select>
+                <select class="form-control" name="time" ng-model="data.time">
+                    <option value="0">选择录入时间</option>
+                    <option value="1">今天</option>
+                    <option value="2">一周内</option>
+                    <option value="3">一月内</option>
+                    <option value="4">半年内</option>
+                </select>
+                <input type="text" name="key" ng-model="data.key" class="form-control" placeholder="接口名" />
+                <button type="submit" class="btn btn-sm btn-success" ng-click="searchApi(searchform)">搜索</button>
+            </div>
+        </form>
+    </div>
+</div>

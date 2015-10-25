@@ -1,0 +1,30 @@
+<div class="edit-status">
+    <form name="apiform" novalidate class="form-inline">
+        <fieldset>
+            <legend>API返回状态</legend>
+            <ul class="api-back-status">
+                <li>
+                    <div class="form-group-sm clearfix">
+                        <label class="col-md-2">描述: </label>
+                        <input type="text" class="form-control col-md-8" ng-model="status.description" required=""
+                               name="description" />
+                        <span ng-show="apiform.$submitted" class="text-danger col-md-2">
+                            <strong ng-show="apiform['description'].$error.required" class="text-danger">请输入状态描述.</strong>
+                        </span>
+                    </div>
+                    <div class="form-group-sm clearfix">
+                        <label class="col-md-2">Code: </label>
+                        <pre class="form-control col-md-8 textarea" ace-inject data-ng-model="status.code" name="code"
+                             required></pre>
+                        <span ng-show="apiform.$submitted" class="text-danger col-md-2">
+                            <strong ng-show="apiform['code'].$error.required" class="text-danger">请输入状态Code.</strong>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </fieldset>
+        <div class="text-center">
+            <button type="submit" class="btn btn-sm btn-success" ng-click="saveApiStatus(apiform)">保存</button>
+        </div>
+    </form>
+</div>

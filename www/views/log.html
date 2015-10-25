@@ -1,0 +1,17 @@
+<div class="log-container" ng-controller="terminal">
+    <ul>
+        <li ng-repeat="log in data.logs" ng-class="{success:log.flag==1,error:log.flag==0}">
+            <i class="fa fa-space-shuttle"></i>
+            [client]::{{log.client|uppercase}}<br/>
+            [url]::{{log.path}}<br/>
+            [method]::{{log.method}}<br/>
+            [响应时间]::{{log.time}}毫秒<br/>
+            [参数]::{{log.param.join()}}<br/>
+            [返回数据]::<pre>{{log.code}}</pre>
+        </li>
+    </ul>
+    <div class="log-control">
+        <!--<a href="javascript:;"><i class="fa fa-terminal"></i></a>-->
+        <a href="javascript:;" ng-click="cleanLogs()"><i class="fa fa-eraser"></i></a>
+    </div>
+</div>

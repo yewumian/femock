@@ -1,0 +1,13 @@
+{
+  "apps" : [{
+    "name"        : "femock",
+    "script"      : "index.js",
+    "log_date_format"  : "YYYY-MM-DD HH:mm Z",
+    "ignoreWatch" : ["[\\/\\\\]\\./", "node_modules"],
+    "watch"       : "true",
+    "error_file"  : "./logs/err.log",
+    "out_file"    : "./logs/out.log",
+    "exec_mode"   : "cluster_mode",
+    "node_args" : "--harmony"
+  }]
+}

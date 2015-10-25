@@ -1,0 +1,106 @@
+<header data-ui-view="header" class="container-fluid"></header>
+<div class="container-fluid main">
+    <div class="row">
+        <nav data-ui-view="nav"></nav>
+        <div class="create-wrap col-md-12" ng-controller="createApi">
+            <form name="apiform" novalidate class="form-inline">
+                <fieldset class="base-info">
+                    <legend>API基本信息</legend>
+                    <div class="form-group-sm">
+                        <label>选择业务线: </label>
+                        <select class="form-control input-sm" ng-model="data.apiInfo.client" name="client" required="">
+                            <option value="" selected>请选择</option>
+                            <option ng-repeat="client in data.clients" value="{{client}}">{{client}}</option>
+                        </select>
+                        <span ng-show="apiform.$submitted" class="text-danger">
+                            <strong ng-show="apiform.client.$error.required" class="text-danger">请选择业务线.</strong>
+                        </span>
+                    </div>
+                    <div class="form-group-sm">
+                        <label>Api名称:</label>
+                        <input type="text" class="form-control" ng-model="data.apiInfo.name" required="" name="name" placeholder="用户登陆" />
+                        <span ng-show="apiform.$submitted" class="text-danger">
+                            <strong ng-show="apiform.name.$error.required" class="text-danger">请输入Api名称.</strong>
+                        </span>
+                    </div>
+                    <div class="form-group-sm">
+                        <label>Api路径:</label>
+                        <input type="text" class="form-control" ng-model="data.apiInfo.path" required="" name="path" placeholder="/user/login" />
+                        <span ng-show="apiform.$submitted" class="text-danger">
+                            <strong ng-show="apiform.path.$error.required" class="text-danger">请输入Api路径.</strong>
+                        </span>
+                    </div>
+                    <div class="form-group-sm">
+                        <label>创建人:</label>
+                        <input type="email" class="form-control" ng-model="data.apiInfo.author" placeholder="panym@liepin.com" required name="email" validators-email />
+                        <span ng-show="apiform.$submitted" class="text-danger">
+                            <strong ng-show="apiform.email.$error.email||apiform.email.$error.required" class="text-danger">请输入正确邮箱.</strong>
+                        </span>
+                    </div>
+                    <div class="form-group-sm">
+                        <label>接收参数: </label>
+                        <textarea class="form-control" required name="param" ng-model="data.apiInfo.param"
+                                  placeholder="userName,userPass,多个参数请使用逗号分隔"></textarea>
+                        <span ng-show="apiform.$submitted" class="text-danger">
+                            <strong ng-show="apiform.param.$error.required" class="text-danger">请输参数.</strong>
+                        </span>
+                    </div>
+                    <div class="form-group-sm">
+                        <label>请求实例:</label>
+                        <textarea class="form-control" rows="2" ng-model="data.apiInfo.eg" placeholder="/user/login?username=123&password=123"></textarea>
+                    </div>
+                    <div class="form-group-sm">
+                        <label>接收方式:</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="api-method" value="get" ng-model="data.apiInfo.method" /> get
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="api-method" value="post" ng-model="data.apiInfo.method" /> post
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="api-method" value="all" ng-model="data.apiInfo.method" /> 不限
+                        </label>
+                    </div>
+                    <div class="form-group-sm">
+                        <label>返回方式:</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="api-back" value="json" ng-model="data.apiInfo.back" /> json
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="api-back" value="html" ng-model="data.apiInfo.back" /> html
+                        </label>
+                        <!--<label class="radio-inline">-->
+                            <!--<input type="radio" name="api-back" value="jsonp" ng-model="data.apiInfo.back" /> jsonp-->
+                        <!--</label>-->
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>API返回状态</legend>
+                    <ul class="api-back-status">
+                        <li ng-repeat="status in data.apiStatus.status">
+                            <div class="form-group-sm">
+                                <label>描述: </label>
+                                <input type="text" class="form-control" ng-model="status.description" required="" name="desc_{{$index}}" />
+                                <span ng-show="apiform.$submitted" class="text-danger">
+                                    <strong ng-show="apiform['desc_{{$index}}'].$error.required" class="text-danger">请输入状态描述.</strong>
+                                </span>
+                                <a href="javascript:;" ng-if="data.apiStatus.status.length>1" ng-click="delStatus($index)" title="删除"><i class="fa fa-remove"></i></a>
+                            </div>
+                            <div class="form-group-sm">
+                                <label>Code: </label>
+                                <pre class="textarea" ace-inject data-ng-model="status.code" back="{{data.apiInfo.back}}"
+                                     required></pre>
+                            </div>
+                        </li>
+                    </ul>
+                </fieldset>
+                <div class="col-md-offset-3">
+                    <a href="javascript:;" class="btn btn-sm btn-warning" ng-click="addSuccess()"><i
+                            class="fa fa-plus"></i> 增加复杂成功状态</a>
+                    <button type="submit" class="btn btn-sm btn-success"  ng-click="addApi(apiform)" ng-if="foundId==0">确定</button>
+                    <button type="submit" class="btn btn-sm btn-success" ng-click="saveApi(apiform)" ng-if="foundId!=0">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

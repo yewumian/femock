@@ -1,0 +1,271 @@
+html{
+    height: 100%;
+    /*overflow: hidden;*/
+}
+body{
+    background: #fff;
+    font-size: 12px;
+}
+ul,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.fa{
+    color: #1fa67a;
+}
+header{
+    height: 70px;
+    background: #343539;
+    border-bottom: 3px solid #1fa67a;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+header .logo{
+    float: left;
+    font-size: 40px;
+    line-height: 70px;
+    text-align: center;
+    color: #fff;
+    font-family: "Georgia";
+    text-shadow: 2px 2px 2px #000;
+    letter-spacing: 2px;
+    margin-left: 20px;
+}
+header .search{
+    float: right;
+    margin: 18px 20px 0 0;
+}
+header .search input[type=text]{
+    width: 240px;
+}
+.main{
+    padding-top: 70px;
+}
+.main nav {
+    border-right: 1px solid #e6e6e4;
+    height: 100%;
+    padding: 0;
+    background: #f4f4f2;
+    width: 100px;
+    position: fixed;
+    z-index: 9;
+}
+.main nav ul{
+    margin-top: 10px;
+}
+.main nav>ul>li{
+    list-style: none;
+}
+.main nav>ul>li a{
+    display: block;
+    text-align: center;
+    font-size: 32px;
+    color: #21b384;
+}
+.main nav>ul>li a:hover{
+    background: #21b384;
+}
+.main nav>ul>li a:hover .fa{
+    color: #fff;
+}
+.main .api-wrap,
+.main .log{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 670px;
+}
+.main .log{
+    float: right;
+}
+.main .log pre {
+    padding: 0;
+    background: none;
+    color: inherit;
+    border-radius: 0;
+    border: none;
+}
+.main .log .log-container{
+    margin-top: 10px;
+}
+.main .log .log-container li{
+    position: relative;
+    line-height: 1.5em;
+    padding: 5px 0 5px 20px;
+    border-bottom: 1px dashed #d1d1d1;
+    color: #999;
+}
+.main .log .log-container li .fa{
+    position: absolute;
+    left: 0;
+    top: 8px;
+}
+.main .log .log-container .success{
+    color: #1fa67a
+}
+.main .log .log-container .error{
+    color: #f60;
+}
+.main .log .log-container li.error .fa{
+    color: #f22;
+}
+.main .log-control{
+    position: fixed;
+    top: 80px;
+    right: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    width: 20px;
+}
+.main .log-control .fa{
+    color: #f60;
+}
+.main .api-wrap{
+    padding: 20px 0 0 100px;
+    border-right: 1px solid #dedede;
+}
+.main .dashboard{
+    line-height: 20px;
+    padding-top: 8px;
+    padding-left: 110px;
+    position: fixed;
+    z-index: 8;
+}
+.main .dashboard span{
+    float: right;
+}
+.main .dashboard .dashboard-port a{
+    float: left;
+    line-height: 18px;
+    border-radius: 3px;
+    background: #1fa67a;
+    color: #fff;
+    text-align: center;
+    padding: 0 3px;
+    margin-right: 5px;
+    text-decoration: none;
+}
+.main .dashboard .dashboard-port a.active,
+.main .dashboard .dashboard-port a:hover{
+    background: #f90;
+}
+.main .api-wrap .fa{
+    font-size: 14px;
+}
+.main .api-wrap .api .fa-remove{
+    color: #f90;
+}
+.main .api-wrap .api li{
+    margin-top: 10px;
+    border-bottom: 1px solid #1fa67a;
+    padding: 0 10px 10px;
+}
+.main .api-wrap .api td,
+.main .api-wrap .api th{
+    line-height: 1.6em;
+    vertical-align: middle;
+}
+.main .api-wrap .api th{
+    width: 60px;
+    font-size: 14px;
+}
+.main .api-wrap .api td{
+    max-width: 40%;
+    min-width: 220px;
+    word-break: break-all;
+}
+.main .api-wrap .api td .has-success{
+    color: #1fa67a;
+}
+.main .api-wrap .api td .has-warning{
+    color: #f90;
+}
+.main .api-wrap .api li:hover{
+    border-bottom-color: #f60;
+}
+.main .api-wrap .api li .api-status span{
+    white-space: nowrap;
+    margin-right: 10px;
+}
+.main .api-wrap .api li .api-status span label{
+    margin: 0 5px 0 0;
+    font-weight: normal;
+}
+.main .api-wrap .api li .fa{
+    cursor: pointer;
+}
+.modal-footer{
+    text-align: center;
+}
+.modal-body{
+    min-height: 120px;
+}
+.edit-status {
+    padding-bottom: 20px;
+}
+.edit-status legend{
+    padding: 15px;
+}
+.edit-status .form-group-sm{
+    margin-bottom: 10px;
+}
+.edit-status .form-group-sm label {
+    width: 120px;
+    margin-right: 15px;
+    text-align: right;
+}
+.edit-status .form-group-sm input[type=text], .edit-status .form-group-sm input[type=email] {
+    min-width: 600px;
+}
+.edit-status .api-back-status .form-group-sm .textarea{
+    min-width: 600px;
+    min-height: 200px;
+}
+/* ng-class*/
+.ng-show{
+    display: block !important;
+}
+
+/* create */
+.main .create-wrap{
+    padding: 20px 20px 20px 120px;
+}
+.main .create-wrap .form-group-sm{
+    margin-bottom: 10px;
+}
+.main .create-wrap .form-group-sm label{
+    width: 120px;
+    margin-right: 15px;
+    text-align: right;
+}
+.main .create-wrap .form-group-sm .radio-inline{
+    text-align: left;
+    width: auto;
+}
+.main .create-wrap .form-group-sm input[type=text],
+.main .create-wrap .form-group-sm input[type=email]{
+    min-width: 520px;
+}
+.main .create-wrap .base-info .form-group-sm textarea{
+    min-height: 50px;
+    min-width: 520px;
+}
+.main .create-wrap .api-back-status .form-group-sm .textarea{
+    min-height: 160px;
+    width: 520px;
+    display: inline-table;;
+}
+.main .create-wrap .btn-warning .fa{
+    color: #fff;
+}
+
+.top-alert{
+    width: 350px;
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    z-index: 9;
+    margin-left: -175px;
+    text-align: center;
+}
