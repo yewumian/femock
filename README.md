@@ -47,8 +47,9 @@
 * 加入socket.io 推送处理情况, 按ip分组多点推送消息
  
 ````
+未绑定域名：
 $.ajax({
-    url : 'http://127.0.0.1:9502/mock/test',
+    url : 'http://127.0.0.1:9507/mock/test',
     data : {ac:1, ab:'b'},
     type : 'get',
     success : function(data){
@@ -57,11 +58,20 @@ $.ajax({
 });
 
 $.ajax({
-    url : 'http://127.0.0.1:9502/mock/test',
+    url : 'http://127.0.0.1:9507/mock/test',
     data : {ac:1, ab:'b',client:'b'},
     type : 'get',
     success : function(data){
         console.log(data)
     }
-})
+});
+绑定域名：
+$.ajax({
+    url : 'http://femock.com/mock/test',
+    data : {ac:1, ab:'b',client:'b'},
+    type : 'get',
+    success : function(data){
+        console.log(data)
+    }
+});
 ````
