@@ -34,5 +34,4 @@ io.on('connection', function(socket){
     socket.emit('connection','socket 连接成功,'+ip);
 });
 global.io = io;
-server.listen(9502);
-//app.listen(conf.port);
+server.listen(9507);

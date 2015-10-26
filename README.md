@@ -12,9 +12,31 @@
 
 * pm2 start pm2.json 或者 node --harmony index.js
 
-* 默认端口 9502
+* 默认端口 9507
 
 * 可以编辑nginx.conf,绑定域名; 
+
+````
+    upstream femock.com {
+        server  127.0.0.1:9507;
+    }
+
+    server {
+        listen       80;
+        server_name femock.com;
+        root  /node/femock;
+        index index.html index.shtml index.htm;
+        location / {
+            proxy_pass         http://femock.com; 
+            proxy_set_header   Host             $host; 
+            proxy_set_header   X-Real-IP        $remote_addr; 
+            proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+            proxy_set_header   Upgrade $http_upgrade;
+            proxy_set_header   Connection "upgrade";
+            proxy_http_version 1.1;
+        }
+    }
+````
 
 * 提供数据模拟功能，按路径返查询数据，并根据设置的接口返回状态，返回相应的数据;
 
