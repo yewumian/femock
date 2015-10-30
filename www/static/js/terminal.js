@@ -3,7 +3,10 @@
  */
 
 angular.module('Terminal',[]).controller('terminal', function ($scope,$timeout) {
-    var socket = io.connect();
+    var socket = io.connect({
+        reconnectionAttempts:10,
+        reconnectionDelay:2000,
+    });
     var terminal = angular.element('#terminal');
     $scope.data = {
         logs : []
