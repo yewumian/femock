@@ -208,7 +208,6 @@ module.exports = [
             }
             sql = "DELETE FROM api_status WHERE target='" + request.apid + "'";
             result = yield ctx.db.run(sql);
-            console.log(result);
             if (!result.changes) {
                 this.body = {flag: 0, msg: "参数有误"};
             }else{
