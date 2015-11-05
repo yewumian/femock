@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group-sm">
                         <label>接收参数: </label>
-                        <textarea class="form-control" required name="param" ng-model="data.apiInfo.param"
+                        <textarea class="form-control" name="param" ng-model="data.apiInfo.param"
                                   placeholder="userName,userPass,多个参数请使用逗号分隔"></textarea>
                         <span ng-show="apiform.$submitted" class="text-danger">
                             <strong ng-show="apiform.param.$error.required" class="text-danger">请输参数.</strong>

@@ -13,7 +13,7 @@ function groupData(result){
                 name : obj.name,
                 author : obj.author,
                 path : obj.path,
-                param : obj.param,
+                param : obj.param||'',
                 eg : obj.eg,
                 method : obj.method,
                 back : obj.back,
@@ -300,11 +300,11 @@ module.exports = [
                         terminal.method = '请求方式错误,接收:'+result.method.toUpperCase();
                     }
                     result.param.split(/[,]/g).forEach(function(val){
-                        if(!request[val]){
+                        if(!val in request){
                             terminal.flag = 0;
-                            terminal.param.push(val+'=undefined');
+                            terminal.param.push(val+'=null');
                         }else{
-                            terminal.param.push(val+'='+request[val]);
+                            terminal.param.push(val?val+'='+request[val]:'');
                         }
                     });
                     terminal.client = result.client;
